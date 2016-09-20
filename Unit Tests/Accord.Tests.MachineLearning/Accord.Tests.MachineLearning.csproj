@@ -88,6 +88,7 @@
     <Compile Include="DecisionTrees\SimplificationTest.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="RansacTest.cs" />
     <Compile Include="TSNETest.cs" />
     <Compile Include="IO\LibSvmModelTest.cs" />
     <Compile Include="KNearestNeighbors\KnnPerformanceTest.cs" />
@@ -124,7 +125,7 @@
     <Compile Include="VectorMachines\Regression\LinearRegressionNewtonMethodTest.cs" />
     <Compile Include="VectorMachines\SupportVectorReductionTest.cs" />
     <Compile Include="VectorMachines\MultilabelSupportVectorLearningTest.cs" />
-    <Compile Include="VectorMachines\ProbabilisticOutputLearningTest.cs" />
+    <Compile Include="VectorMachines\ProbabilisticOutputCalibrationTest.cs" />
     <Compile Include="VectorMachines\MulticlassSupportVectorLearningTest.cs" />
     <Compile Include="VectorMachines\MulticlassSupportVectorMachineTest.cs" />
     <Compile Include="Bayes\NaiveBayesTest.cs" />
