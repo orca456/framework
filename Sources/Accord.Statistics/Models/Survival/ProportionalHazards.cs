@@ -42,7 +42,7 @@ namespace Accord.Statistics.Models.Regression
         ///   Gets the mean vector used to center observations before computations.
         /// </summary>
         /// 
-        [Obsolete("Please use Intercept instead.")]
+        //[Obsolete("Please use Intercept instead.")]
         public double[] Offsets { get; private set; }
 
         /// <summary>

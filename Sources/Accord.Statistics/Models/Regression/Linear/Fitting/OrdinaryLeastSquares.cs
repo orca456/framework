@@ -97,8 +97,8 @@ namespace Accord.Statistics.Models.Regression.Linear
             {
                 return new SimpleLinearRegression()
                 {
-                    Slope = coefficients[1],
-                    Intercept = coefficients[0]
+                    Slope = coefficients[0],
+                    Intercept = coefficients[1]
                 };
             }
             else

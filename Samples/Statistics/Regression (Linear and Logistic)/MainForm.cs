@@ -1,4 +1,4 @@
-﻿// Accord.NET Sample Applications
+﻿ // Accord.NET Sample Applications
 // http://accord-framework.net
 //
 // Copyright © 2009-2014, César Souza

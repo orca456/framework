@@ -294,10 +294,44 @@ namespace Accord.MachineLearning
         ///   Creates a new k-fold cross-validation algorithm.
         /// </summary>
         /// 
-        /// <param name="indices">An already created set of fold indices for each sample in a dataset.</param>
-        /// <param name="folds">The total number of folds referenced in the <paramref name="indices"/> parameter.</param>
+        /// <param name="size">The total number samples in the entire dataset.</param>
+        /// <param name="max">The total number samples in the entire dataset.</param>
+        /// <param name="folds">The number of folds, usually denoted as <c>k</c> (default is 10).</param>
         /// 
-        public CrossValidation(int[] indices, int folds)
+        public CrossValidation(int size, int max, int folds)
+        {
+          if (folds > size)
+          {
+            throw new ArgumentException("The number of folds can not exceed "
+            + "the total number of samples in the data set", "folds");
+          }
+
+          this.samples = size;
+          this.folds = new int[folds][];
+
+          //this.indices = CrossValidation.Splittings(size, folds);
+          // Create the index vector
+          this.indices = new int[size];
+
+          double n = max / (double)samples;
+          for (int i = 0; i < size; i++)
+            indices[i] = (int)System.Math.Ceiling((i + 0.9) * n) - 1;
+
+          // Shuffle the indices vector
+          Vector.Shuffle(indices);
+
+          // Create foldings
+          for (int i = 0; i < folds; i++)
+            this.folds[i] = indices.Find(x => x == i);
+        }
+    /// <summary>
+    ///   Creates a new k-fold cross-validation algorithm.
+    /// </summary>
+    /// 
+    /// <param name="indices">An already created set of fold indices for each sample in a dataset.</param>
+    /// <param name="folds">The total number of folds referenced in the <paramref name="indices"/> parameter.</param>
+    /// 
+    public CrossValidation(int[] indices, int folds)
         {
             this.samples = indices.Length;
             this.folds = new int[folds][];
@@ -379,6 +413,9 @@ namespace Accord.MachineLearning
 
                     // Create training and validation sets
                     CreatePartitions(i, out trainingSet, out validationSet);
+
+                  if (trainingSet.Length == 0)
+                    throw new Exception();
 
                     // Fit and evaluate the model
                     models[i] = fitting(i, trainingSet, validationSet);

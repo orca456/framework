@@ -159,6 +159,9 @@ namespace Accord.MachineLearning
         /// 
         public CrossValidation(int size, int folds)
             : base(size, folds) { }
+    
+        public CrossValidation(int size, int max, int folds)
+            : base(size, max, folds) { }
 
         /// <summary>
         ///   Creates a new k-fold cross-validation algorithm.

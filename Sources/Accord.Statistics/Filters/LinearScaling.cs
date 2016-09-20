@@ -140,7 +140,21 @@ namespace Accord.Statistics.Filters
                 parseColumn(data, column);
         }
 
-        private void parseColumn(DataTable data, DataColumn column)
+
+    /// <summary>
+    ///   Auto detects the filter options by analyzing a given <see cref="System.Data.DataTable"/>.
+    /// </summary>  
+    /// 
+    //public void Detect(double[][] data)
+    //{
+    //  int columns = data
+    //  for ()
+    //  // For each column
+    //  foreach (DataColumn column in data.Columns)
+    //    parseColumn(data, column);
+    //}
+
+    private void parseColumn(DataTable data, DataColumn column)
         {
             string name = column.ColumnName;
             double max = 0, min = 0;
